@@ -1,12 +1,11 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
-const colors = require('tailwindcss/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './src/**/*.{11ty.js,njk,liquid}',
     './src/_11ty/shortcodes/*.js',
-    './src/assets/scripts/theme.ts',
+    './src/assets/scripts/inlinedScript.ts',
   ],
   darkMode: 'class',
 
@@ -33,22 +32,24 @@ module.exports = {
         },
       },
 
-      colors: {
-        hn: '#F0652F',
-        twitter: '#1DA1F2',
-        github: '#181717',
-        mastodon: '#6364FF',
-        kofi: '#FF5E5B',
-        discord: '#5865F2',
+      colors: ({}) => ({
+        brand: {
+          hn: '#F0652F',
+          twitter: '#1DA1F2',
+          github: '#181717',
+          mastodon: '#6364FF',
+          kofi: '#FF5E5B',
+          discord: '#5865F2',
+        },
 
         tag: {
-          1: colors.rose[500],
-          2: colors.amber[500],
-          3: colors.green[600],
-          4: colors.blue[500],
-          0: colors.indigo[500],
+          1: 'rgb(var(--ctp-red))',
+          2: 'rgb(var(--ctp-peach))',
+          3: 'rgb(var(--ctp-green))',
+          4: 'rgb(var(--ctp-blue))',
+          0: 'rgb(var(--ctp-lavender))',
         },
-      },
+      }),
     },
   },
 
@@ -56,5 +57,11 @@ module.exports = {
     extend: {},
   },
 
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@catppuccin/tailwindcss')({
+      prefix: 'ctp',
+      // defaultFlavor: 'latte',
+    }),
+  ],
 };

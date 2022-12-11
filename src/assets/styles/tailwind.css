@@ -6,19 +6,19 @@
   body {
     @apply flex flex-col;
     @apply mx-auto max-w-[100ch] overflow-y-scroll px-6 py-20;
-    @apply bg-white text-black dark:bg-zinc-900 dark:text-white;
+    @apply bg-ctp-base text-ctp-text;
     @apply tracking-tight;
   }
 
   ::selection {
-    @apply bg-blue-500 text-white;
+    @apply bg-ctp-subtext0 text-white;
   }
 
   a,
   button,
   input,
   textarea {
-    @apply outline-none focus:ring focus:ring-blue-400/50;
+    @apply outline-none focus:ring focus:ring-ctp-blue/50;
   }
 
   .title {
@@ -27,23 +27,25 @@
 
   .enhanced-prose {
     @apply prose break-words prose-headings:font-satoshi dark:prose-invert;
-    @apply prose-a:text-blue-500 prose-a:underline-offset-2 prose-a:transition-colors hover:prose-a:text-blue-400 dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-500;
+    @apply text-ctp-text prose-headings:text-ctp-text prose-pre:bg-ctp-surface0;
+    @apply prose-a:text-ctp-rosewater prose-a:underline-offset-2 prose-a:transition hover:prose-a:brightness-90;
+    @apply prose-code:rounded-sm prose-code:bg-ctp-surface0 prose-code:px-2 prose-code:py-1 prose-code:text-black prose-code:before:content-[""] prose-code:after:content-[""] dark:prose-code:text-white;
     @apply max-w-none;
 
     & :is(h2, h3, h4, h5) {
       @apply flex items-center;
     }
     & :is(h2, h3, h4, h5) .anchor {
-      @apply ml-3 text-base font-medium text-zinc-600 no-underline hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-300;
+      @apply ml-3 text-base font-medium text-ctp-subtext0 no-underline hover:text-ctp-subtext1;
     }
   }
 
   mark {
-    @apply bg-transparent text-black dark:text-white;
+    @apply bg-transparent text-ctp-text;
   }
 
   .link-colors {
-    @apply text-black hover:text-blue-500 dark:text-white dark:hover:text-blue-300;
+    @apply text-ctp-text hover:text-ctp-blue;
   }
 
   a.buttonish,
@@ -52,12 +54,12 @@
     @apply transition-all hover:brightness-[80%] disabled:opacity-75;
 
     &.primary {
-      @apply bg-blue-600 text-white;
+      @apply bg-ctp-blue text-white;
     }
 
     &.danger {
-      @apply bg-red-500 text-white;
-      @apply focus:ring-red-400/50;
+      @apply bg-ctp-red text-white;
+      @apply focus:ring-ctp-red/50;
     }
   }
 

@@ -61,9 +61,11 @@ const updateClass = () => {
     (themeProxy.theme === 'system' && systemIsDark) ||
     themeProxy.theme === 'dark'
   ) {
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.add('ctp-latte');
+    document.documentElement.classList.add('dark', 'ctp-macchiato');
   } else {
-    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.remove('dark', 'ctp-macchiato');
+    document.documentElement.classList.add('ctp-latte');
   }
 
   document.documentElement.style.setProperty(
